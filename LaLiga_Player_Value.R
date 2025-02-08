@@ -17,7 +17,7 @@ photos_save_path <- "/Users/alvaroyustevalles/Documents/GitHub/-Liga-Espa-ola-Pl
 
 # Cargar datos y corregir nombres de columnas
 print("1 Carga de datos")
-df <- read_csv("archive/CLEAN_FIFA23_official_data.csv") %>%
+df <- read_csv("datasets/CLEAN_FIFA23_official_data.csv") %>%
       select(
           ID,
           Name,
