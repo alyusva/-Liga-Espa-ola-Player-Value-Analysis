@@ -19,7 +19,7 @@ Análisis estadístico avanzado para determinar la relación entre característi
 - **RStudio** (recomendado) o VS Code con extensión R.
 - **Paquetes de R**:
   ```r
-  install.packages(c("tidyverse", "caret", "ggplot2", "corrplot"))
+  install.packages(c("tidyverse", "ggplot2", "caret","corrplot","scales","dplyr"))
   ```
 ### Instrucciones para Ejecutar el Proyecto
 **Descargar el dataset de Kaggle:**
