@@ -16,7 +16,7 @@ library(psych)
 library(randomForest)
 
 # Carpeta de guardado de resultados
-photos_save_path <- "results"
+photos_save_path <- "results/graficos"
 dir.create(photos_save_path, showWarnings = FALSE) # Crear carpeta si no existe
 
 # 1.1. Carga y limpieza inicial
