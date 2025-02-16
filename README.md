@@ -7,9 +7,11 @@ Análisis estadístico avanzado para determinar la relación entre característi
 
 ---
 ## 📋 Contenido del Proyecto
-- **Código R**: Script completo con análisis exploratorio, modelado y visualizaciones.
-- **Dataset**: Datos limpios de jugadores de la Liga Española (FIFA 23).
-- **Informe PDF**: Conclusiones detalladas y hallazgos estadísticos.
+- **Código R**: Script completo (`LaLiga_Player_Value.R`) que incluye el análisis exploratorio, modelado (Regresión Lineal y Random Forest) y visualizaciones.
+- **Dataset**: Datos limpios de jugadores de FIFA 23, extraídos del [FIFA 23 Player Dataset (Kaggle)](https://www.kaggle.com/datasets/kevwesophia/fifa23-official-datasetclean-data).
+- **Informe Final PDF**: Documento con conclusiones detalladas, hallazgos, comparaciones de modelos y análisis estadístico.
+- **Gráficos**: Visualizaciones generadas durante el análisis, disponibles en la carpeta `results/graficos`.
+
 ---
 ## ⚙️ Configuración
 
@@ -19,7 +21,7 @@ Análisis estadístico avanzado para determinar la relación entre característi
 - **RStudio** (recomendado) o VS Code con extensión R.
 - **Paquetes de R**:
   ```r
-  install.packages(c("tidyverse", "ggplot2", "caret","corrplot","scales","dplyr"))
+  install.packages(c("tidyverse", "ggplot2", "caret", "corrplot", "scales", "dplyr", "psych", "randomForest"))
   ```
 ### Instrucciones para Ejecutar el Proyecto
 **Descargar el dataset de Kaggle:**
@@ -35,14 +37,23 @@ git clone https://github.com/tuusuario/LaLiga-PlayerValue-FIFA23-Analysis.git
 
 ### 📊 Resultados Clave
 - **Variables clave en el valor de mercado:**
-Overall Rating explica el 78% de la variabilidad (R² = 0.87).
-Cada nivel de reputación internacional aumenta el valor en un 35%.
-Edad >30 años reduce el valor significativamente (β = -0.12).
+Overall: Correlación con log(valor) r = 0.54.
+International Reputation: r = 0.23.
+Potential y Skill Moves: r = 0.52 y r = 0.31, respectivamente.
+En Random Forest, al incluir la variable Release_Clause_eur, ésta emerge como la más influyente, lo que refleja su fuerte correlación con el valor de mercado.
+En Regresión Lineal, se observa que tanto Overall como Release_Clause_eur presentan coeficientes significativos y altos valores de t cuando se incluyen todas las variables.
 
-- **Visualizaciones:**
-Correlación entre habilidades y valor.
-Distribución del valor de mercado por reputación internacional.
-Modelo predictivo con RMSE = 0.243 (escala logarítmica).
+- **Cuantificación de Habilidades Técnicas:**
+El modelo de regresión lineal simple para Overall explica aproximadamente el 29% de la variabilidad del log(valor) (R² = 0.29).
+Cada punto adicional en Overall incrementa el log(valor) en ~0.14 unidades.
+
+- **Modelado Predictivo:**
+Regresión Lineal Múltiple: R² ajustado = 0.45 en entrenamiento; RMSE en test = 1.443.
+Random Forest: RMSE en test = 1.227, lo que sugiere mayor robustez frente a outliers y una mejor captura de la complejidad de los datos.
+
+- **Comparación de Modelos::**
+El Random Forest presenta un RMSE inferior, evidenciando un desempeño predictivo superior.
+La Regresión Lineal aporta mayor interpretabilidad a través de sus coeficientes, facilitando la comprensión de la relación entre variables y el valor de mercado.
 
 ### 🗂️ Estructura del Proyecto
 ```
